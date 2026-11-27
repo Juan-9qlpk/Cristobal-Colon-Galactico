@@ -40,7 +40,15 @@ La aplicación estará disponible en `http://127.0.0.1:8000/`.
 
 ## Datos de prueba
 
-Para generar usuarios y naves de prueba:
+El comando añade 20 usuarios, tres naves, tres misiones y dos exoplanetas.
+
+Las misiones incluyen:
+
+- Una misión pequeña finalizada con éxito y dos exoplanetas descubiertos.
+- Una misión mediana finalizada sin éxito.
+- Una misión grande en curso.
+
+Cada ejecución añade nuevos datos a la base de datos.
 
 ```powershell
 python manage.py factoria
@@ -180,7 +188,8 @@ Ejemplo de respuesta:
 
 - Modelos iniciales de usuarios y naves.
 - CRUD de usuarios y pruebas automáticas.
-- Factoría inicial para generar usuarios y naves de prueba.
+- Factoría para generar usuarios, naves, misiones, tripulaciones
+  y exoplanetas de prueba.
 - Documentación de instalación, pruebas y API de usuarios.
 
 ### Juanma

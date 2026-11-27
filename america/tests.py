@@ -102,6 +102,55 @@ class FactoriaTest(TestCase):
             {"PEQUENA", "MEDIANA", "GRANDE"}
         )
 
+    def test_factoria_crea_misiones_y_exoplanetas(self):
+        call_command("factoria")
+
+        # Se crea una misión en curso y dos finalizadas.
+        self.assertEqual(Mision.objects.count(), 3)
+        self.assertEqual(Mision.objects.filter(finalizada=False).count(), 1)
+        self.assertEqual(
+            Mision.objects.filter(finalizada=True, exito=True).count(), 1
+        )
+        self.assertEqual(
+            Mision.objects.filter(finalizada=True, exito=False).count(), 1
+        )
+
+        # Los planetas pertenecen a la misión que terminó con éxito.
+        self.assertEqual(Exoplaneta.objects.count(), 2)
+        self.assertEqual(
+            Exoplaneta.objects.filter(
+                mision__finalizada=True,
+                mision__exito=True
+            ).count(),
+            2
+        )
+
+        # Comprobamos la tripulación y los capitanes de cada misión.
+        for mision in Mision.objects.all():
+            tripulacion = Tripulacion.objects.filter(mision=mision)
+            capitanes = tripulacion.filter(rol=Rol.CAPITAN).count()
+
+            if mision.nave.tamano == Nave.Tamano.PEQUENA:
+                self.assertEqual(tripulacion.count(), 4)
+                self.assertEqual(capitanes, 1)
+
+            elif mision.nave.tamano == Nave.Tamano.MEDIANA:
+                self.assertEqual(tripulacion.count(), 8)
+                self.assertEqual(capitanes, 1)
+
+            elif mision.nave.tamano == Nave.Tamano.GRANDE:
+                self.assertEqual(tripulacion.count(), 11)
+                self.assertEqual(capitanes, 2)
+
+        # Ningún usuario está en más de una misión en curso.
+        usuarios_en_curso = Tripulacion.objects.filter(
+            mision__finalizada=False
+        ).values_list("usuario_id", flat=True)
+
+        self.assertEqual(
+            len(usuarios_en_curso),
+            len(set(usuarios_en_curso))
+        )
 
 ## supongo que creare mi propia clase para la parte de test de misiones?
 class MisionTest(TestCase):
