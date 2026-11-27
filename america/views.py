@@ -351,9 +351,14 @@ def finalizar_mision(request, id):
     mision_encontrada.finalizada = True
     mision_encontrada.exito = resultado
     mision_encontrada.save()
-    for nombre_planeta in exoplanetas:
-        Exoplaneta.objects.create(nombre=nombre_planeta, mision=mision_encontrada)
-    return exito("Mision finalizada correctamente", None, 200)
+
+    planetas = []
+    for exoplaneta in exoplanetas:
+        planeta = Exoplaneta.objects.create(nombre=exoplaneta, mision=mision_encontrada)
+        planetas.append({"nombre": planeta.nombre})
+
+    datos = {"mision": mision_encontrada.nombre, "exito": resultado, "exoplanetas": planetas}
+    return exito("Mision finalizada correctamente", datos, 200)
 
 
 def tripulacion_mision(request, id):
@@ -377,12 +382,14 @@ def planetas_capitan(request, id):
     if fallo is not None:
         return fallo
 
-    if not Usuario.objects.filter(id=id).exists():
-        return error("Usuario no encontrado", 404)
-
+    ## me he achinado con el postman, basicamente esto lo hago para comprobar si el usuario existe, si no ps tira esto
     capitan = Usuario.objects.filter(id=id).first()
     if capitan is None:
-        return error("Usuario no encontrado", 404)
+        return error("Tripulante no encontrado", 404)
+
+    ## y aqui compruebo si alguna vez ha sido capitan, lo hago porque al meter la factoria y cacharrear me hizo un poco de lio solo
+    if not Tripulacion.objects.filter(usuario=capitan, rol=Rol.CAPITAN).exists():
+        return error("Este tripulante no ha sido capitan", 404)
 
     planetas = Exoplaneta.objects.filter(mision__tripulacion__usuario_id=id, mision__tripulacion__rol=Rol.CAPITAN).distinct().values("id", "nombre", "mision_id")
     datos = {"capitan": capitan.nombre + " " + capitan.apellidos, "planetas": list(planetas)}
