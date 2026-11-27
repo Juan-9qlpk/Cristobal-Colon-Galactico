@@ -6,8 +6,6 @@ from .models import Usuario, Nave, Mision, Tripulacion, Exoplaneta, Rol
 
 from django.core.management import call_command
 
-from .models import Nave
-
 class UsuarioAPITest(TestCase):
 
     def setUp(self):
@@ -103,7 +101,6 @@ class FactoriaTest(TestCase):
             tamanos,
             {"PEQUENA", "MEDIANA", "GRANDE"}
         )
-
 
 
 ## supongo que creare mi propia clase para la parte de test de misiones?
@@ -304,7 +301,8 @@ class MisionTest(TestCase):
         respuesta = self.client.get("/api/capitanes/" + str(self.capitan.id) + "/exoplanetas/")
 
         self.assertEqual(respuesta.status_code, 200)
-        nombres = [planeta["nombre"] for planeta in respuesta.json()["datos"]]
+        self.assertEqual(respuesta.json()["datos"]["capitan"], "Cristobal Colon")
+        nombres = [planeta["nombre"] for planeta in respuesta.json()["datos"]["planetas"]]
         self.assertEqual(nombres, ["turk-alert"])
         ## Cristobal es capi en la mision 1 y tripulante en la 2
         ## solo debe salir el planeta de la mision 1 turk-alert
