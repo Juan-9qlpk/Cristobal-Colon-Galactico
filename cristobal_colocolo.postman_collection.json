@@ -1,0 +1,679 @@
+{
+  "info": {
+    "_postman_id": "fbf08759-e0af-4aab-a1fd-ecb9d52103d3",
+    "name": "cristobal_colocolo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58149407",
+    "_collection_link": "https://go.postman.co/collection/58149407-fbf08759-e0af-4aab-a1fd-ecb9d52103d3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "crud usuarios",
+      "item": [
+        {
+          "name": "crear usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Dani\",\r\n  \"apellidos\": \"Prueba\",\r\n  \"cocinero\": true,\r\n  \"mantenimiento\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otro usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Juanma\",\r\n  \"apellidos\": \"Prueba\",\r\n  \"misiones_largas\": true,\r\n  \"explorador_cortas_distancias\": false,\r\n  \"conflictivo\": false,\r\n  \"cocinero\": false,\r\n  \"mantenimiento\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otro usuario v2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Ana\",\r\n  \"apellidos\": \"Prueba\",\r\n  \"misiones_largas\": false,\r\n  \"explorador_cortas_distancias\": true,\r\n  \"conflictivo\": false,\r\n  \"cocinero\": false,\r\n  \"mantenimiento\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otro usuario v3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Luis\",\r\n  \"apellidos\": \"Prueba\",\r\n  \"misiones_largas\": false,\r\n  \"explorador_cortas_distancias\": false,\r\n  \"conflictivo\": true,\r\n  \"cocinero\": false,\r\n  \"mantenimiento\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otro usuario v4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Borrar\",\r\n  \"apellidos\": \"Prueba\",\r\n  \"misiones_largas\": false,\r\n  \"explorador_cortas_distancias\": false,\r\n  \"conflictivo\": false,\r\n  \"cocinero\": false,\r\n  \"mantenimiento\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "mostrar usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "buscar usuario id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/1/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modificar usuario",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cocinero\": false,\r\n  \"mantenimiento\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/1/modificar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "1",
+                "modificar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "borrar usuario",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/usuarios/5/eliminar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "usuarios",
+                "5",
+                "eliminar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "postman parte readme usuarios"
+    },
+    {
+      "name": "misiones-exoplanetas",
+      "item": [
+        {
+          "name": "crear nave",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"La Niña\",\r\n  \"tamano\": \"PEQUENA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/naves/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "naves",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "asignar mision",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Primera expedición\",\r\n  \"nave\": 1,\r\n  \"capitanes\": [1],\r\n  \"tripulantes\": [2, 3, 4]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/asignar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "asignar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "obtener tripulacion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/1/tripulacion/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "1",
+                "tripulacion",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "finalizar mision",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"exito\": true,\r\n  \"exoplanetas\": [\"Nueva Tierra\", \"Estrella Azul\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/1/finalizar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "1",
+                "finalizar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "planetas descubiertos capi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/capitanes/1/exoplanetas/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "capitanes",
+                "1",
+                "exoplanetas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "asignar mision 2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Segunda expedición\",\r\n  \"nave\": 1,\r\n  \"capitanes\": [2],\r\n  \"tripulantes\": [1, 3, 4]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/asignar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "asignar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "finalizar mision pero fallarla",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"exito\": false,\r\n  \"exoplanetas\": []\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/2/finalizar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "2",
+                "finalizar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "postman parte del readme para cacharrear"
+    },
+    {
+      "name": "cacharreo factoria misiones",
+      "item": [
+        {
+          "name": "crear nave",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Super Isla2\", \r\n    \"tamano\": \"GRANDE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/naves/crear/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "naves",
+                "crear",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "finalizar mision",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"exito\": true,\r\n  \"exoplanetas\": [\"turk-alert\", \"Isla premium\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/3/finalizar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "3",
+                "finalizar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "obtener tripulacion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/3/tripulacion/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "3",
+                "tripulacion",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "consultar exoplanetoides",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/capitanes/2/exoplanetas/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "capitanes",
+                "2",
+                "exoplanetas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "asignar misiones",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"MISION GRANDE\",\r\n  \"nave\": 3,\r\n  \"capitanes\": [1, 2],\r\n  \"tripulantes\": [3, 4, 13, 14, 15, 16, 17, 18, 19]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/misiones/asignar/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "misiones",
+                "asignar",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Este es por si cacharreas con la factoria ya creada."
+    }
+  ]
+}
