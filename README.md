@@ -195,3 +195,151 @@ Ejemplo de respuesta:
 ### Juanma
 
 - Desarrollo de misiones, tripulaciones y exoplanetas.
+
+## API de naves y misiones
+
+### Crear una nave
+
+- Método: `POST`
+- URL: `/api/naves/crear/`
+- Tamaños disponibles: `PEQUENA`, `MEDIANA` y `GRANDE`.
+
+Ejemplo de petición:
+
+```json
+{
+  "nombre": "La Niña",
+  "tamano": "PEQUENA"
+}
+```
+
+Ejemplo de respuesta:
+
+```json
+{
+  "ok": true,
+  "mensaje": "Nave creada correctamente",
+  "datos": {
+    "nombre": "La Niña",
+    "tamano": "PEQUENA"
+  }
+}
+```
+
+### Asignar una misión
+
+- Método: `POST`
+- URL: `/api/misiones/asignar/`
+- `nave`, `capitanes` y `tripulantes` contienen los ID de registros existentes.
+
+Ejemplo para una nave pequeña:
+
+```json
+{
+  "nombre": "Primera expedición",
+  "nave": 1,
+  "capitanes": [1],
+  "tripulantes": [2, 3, 4]
+}
+```
+
+Ejemplo de respuesta:
+
+```json
+{
+  "ok": true,
+  "mensaje": "mision asignada correctamente",
+  "datos": {
+    "id": 1
+  }
+}
+```
+
+La aplicación comprueba que la nave y los usuarios estén disponibles
+y que la tripulación cumpla las condiciones de tamaño y capitanes.
+
+### Finalizar una misión
+
+- Método: `POST`
+- URL: `/api/misiones/<id>/finalizar/`
+- `id` es el identificador de la misión.
+- Solo se pueden registrar exoplanetas si la misión ha tenido éxito.
+
+Ejemplo de petición:
+
+```json
+{
+  "exito": true,
+  "exoplanetas": ["Nueva Tierra", "Estrella Azul"]
+}
+```
+
+Ejemplo de respuesta:
+
+```json
+{
+  "ok": true,
+  "mensaje": "Mision finalizada correctamente",
+  "datos": null
+}
+```
+
+Para una misión fallida, se puede enviar:
+
+```json
+{
+  "exito": false,
+  "exoplanetas": []
+}
+```
+
+### Consultar la tripulación de una misión
+
+- Método: `GET`
+- URL: `/api/misiones/<id>/tripulacion/`
+- `id` es el identificador de la misión.
+
+Ejemplo de respuesta:
+
+```json
+{
+  "ok": true,
+  "mensaje": "tripulacion de la mision",
+  "datos": {
+    "mision": "Primera expedición",
+    "tripulacion": [
+      {
+        "id": 1,
+        "nombre": "Dani",
+        "apellidos": "Prueba",
+        "rol": "capitan"
+      }
+    ]
+  }
+}
+```
+
+### Consultar planetas descubiertos por un capitán
+
+- Método: `GET`
+- URL: `/api/capitanes/<id>/exoplanetas/`
+- `id` es el identificador del usuario.
+
+Ejemplo de respuesta:
+
+```json
+{
+  "ok": true,
+  "mensaje": "Planetas descubiertos por el capitan",
+  "datos": {
+    "capitan": "Dani Prueba",
+    "planetas": [
+      {
+        "id": 1,
+        "nombre": "Nueva Tierra",
+        "mision_id": 1
+      }
+    ]
+  }
+}
+```
