@@ -4,6 +4,9 @@ from django.test import TestCase
 from django.db.models import ProtectedError
 from .models import Usuario, Nave, Mision, Tripulacion, Exoplaneta, Rol
 
+from django.core.management import call_command
+
+from .models import Nave
 
 class UsuarioAPITest(TestCase):
 
@@ -85,6 +88,23 @@ class UsuarioAPITest(TestCase):
         self.assertFalse(
             Usuario.objects.filter(id=self.usuario.id).exists()
         )
+
+
+class FactoriaTest(TestCase):
+
+    def test_factoria_crea_usuarios_y_naves(self):
+        call_command("factoria")
+
+        self.assertEqual(Usuario.objects.count(), 20)
+        self.assertEqual(Nave.objects.count(), 3)
+
+        tamanos = set(Nave.objects.values_list("tamano", flat=True))
+        self.assertEqual(
+            tamanos,
+            {"PEQUENA", "MEDIANA", "GRANDE"}
+        )
+
+
 
 ## supongo que creare mi propia clase para la parte de test de misiones?
 class MisionTest(TestCase):
